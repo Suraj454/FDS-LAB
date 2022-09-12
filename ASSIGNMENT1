@@ -1,0 +1,76 @@
+Marks=[]
+present=[]
+absent=[]
+nos=int(input("enter no of students"))
+i=0
+while(i<nos):
+    b=input("enter Marks")
+    Marks.append(b)
+    i=i+1
+
+j=0
+while(j<nos):
+    if(Marks[j]=="ab"):
+        absent.append(Marks[j])
+    else:
+        b=int(Marks[j])
+        present.append(b)
+    j=j+1
+
+i=0
+while(i<len(present)):
+    print(present[i])
+    i=i+1
+
+def averg():
+    total=0
+    avg=0
+    i=0
+    while(i<len(present)):
+        total=total+present[i];
+        i=i+1
+    avg=total/len(present)
+    print("total marks of class",total)
+    print("average marks of class", avg)
+
+def high():
+    highest=0
+    i=0
+    while(i<len(present)):
+        if(highest<present[i]):
+            highest=present[i];
+        i=i+1
+    print("highest score of class",highest)
+
+def low():
+    lowest=999
+    i=0
+    while (i < len(present)):
+        if (lowest > present[i]):
+            lowest = present[i];
+        i = i + 1
+    print("lowest score of class", lowest)
+
+def abs():
+    print("no of absent studnet",len(absent))
+
+
+def frequency():
+    hf=0
+    for i in range(0,len(present)):
+        fr=1
+        for j in range(i+1,len(present)):
+            if(present[i]==present[j]):
+                fr=fr+1
+            j=j+1
+
+        if(fr>hf):
+            hf=fr;
+            p=present[i]
+        i=i+1
+    print("highest frequency is",hf,"for marks",p)
+averg();
+high();
+low();
+abs();
+frequency();
